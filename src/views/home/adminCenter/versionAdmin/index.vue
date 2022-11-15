@@ -31,7 +31,7 @@
           <p><span class="key">发布者</span><span>{{ item.pushinformationaccount }}</span></p>
           <p><span class="key">发布时间</span><span>{{ item.lastupdatetime }}</span></p>
           <p><span class="key">资源大小</span><span>{{ item.size }} MB</span></p>
-          <p><span class="key">项目备注</span><span>{{ item.remarks }}</span></p>
+          <p><span class="key">新功能描述</span><span>{{ item.remarks }}</span></p>
         </div>
       </div>
     </div>

@@ -188,6 +188,7 @@
              </el-col>
            </el-form-item>
            <el-form-item v-if="isablechangfg" v-model="mesForm.basicInformation.screenshots" label="应用图片" prop="screenshots" >
+             <span class="greyWord">图片像素 1200 x 2600</span>
              <el-col :span="17">
              <UploadPicture  @newingList="screenimgs"></UploadPicture>
              </el-col><br><br><br><br>

@@ -298,9 +298,9 @@ export default {
       clearInterval(timer)
 
     },
-    register() {
-      this.$router.push('/register')
-    },
+    // register() {
+    //   this.$router.push('/register')
+    // },
     closeDialog() {
       // 清空定时器
       clearInterval(timer)
@@ -313,11 +313,11 @@ export default {
       this.dialogFormVisible=true
       this.$nextTick(()=>{
         var obj = new WxLogin({
-        self_redirect: false,
-        id:"login_container",
-        appid: "wxdf8750fc46c4cd3d",
-        scope: "snsapi_login",
-        redirect_uri:"https://1to2to3.cn/applet_center/#/login",
+        self_redirect: false,//是否在显示二维码区域跳转（iframe）
+        id:"login_container",//二维码容器
+        appid: "wxdf8750fc46c4cd3d",//微信开发者内创建应用的appid
+        scope: "snsapi_login",//公司认证过的
+        redirect_uri:"https://1to2to3.cn/applet_center/#/login",//登录成功后进入的页面
         herf:'https://1to2to3.cn/applet_center/#/login',
         })
       })

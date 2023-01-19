@@ -28,6 +28,19 @@
           </el-col><br>
           <span class="greyWord">应用简称长度为4-10个字符，一个中文字等于2个字符。</span>
         </el-form-item>
+
+        <el-form-item label="应用宣传语" prop="appSlogan">
+          <el-col :span="17">
+            <el-input
+              v-model="mesForm.basicInformation.appSlogan"
+              type="text"
+              maxlength="20"
+              show-word-limit
+              placeholder="请输入宣传语"
+            />
+          </el-col><br>
+        </el-form-item>
+
         <el-form-item  label="应用类别" prop="apptype">
            <el-select v-model="mesForm.basicInformation.apptype" placeholder="请选择" style="width:  70.8333333333%;">
                <el-option
@@ -181,8 +194,6 @@
                  v-model="mesForm.basicInformation.appintroduction"
                  type="textarea"
                  placeholder="请输入内容"
-                 maxlength="30"
-                 show-word-limit
                  rows="5"
                />
              </el-col>
@@ -254,6 +265,14 @@ export default {
 
     // 表单校验
     var validateValue = async(rule, value, callback) => {
+      if (this.mesForm.basicInformation.appname === '') {
+        callback(new Error('请输入应用名称'))
+      }
+      callback()
+    }
+
+
+    var validateappSlogan= async(rule, value, callback) => {
       if (this.mesForm.basicInformation.appname === '') {
         callback(new Error('请输入应用名称'))
       }
@@ -412,6 +431,7 @@ export default {
             "basicInformation": {
               "appavatar": "",//上传应用头像
               "appcopyright": "",//应用版权
+              "appSlogan":'',//应用宣传
               "appintroduction": "",//版本内容
               "appname": "",//应用名称
               "appqrcode": "",//二维码
@@ -439,6 +459,9 @@ export default {
         ],
         appshortname: [
           { required: true, validator: validateappshortname, trigger: 'blur' }
+        ],
+        appSlogan: [
+          { required: true, validator: validateappSlogan, trigger: 'blur' }
         ],
         appavatar:[
            { required: true, validator: validateappavatar, trigger: 'blur' }
